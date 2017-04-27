@@ -6,17 +6,17 @@ const passport = require('passport');
 
 /* GET users listing. */
 
-router.get('/users/',util.isValidAdmin,userController.getAllUser)
-router.get('/users/:id',util.isValidUserOrAdmin,userController.getOneUser)
-router.post('/users/',util.isValidAdmin,userController.insertUser)
-router.put('/users/:id',util.isValidUserOrAdmin,userController.updateUser)
-router.delete('/users/:id',util.isValidAdmin,userController.deleteUser)
-router.post('/signup/',userController.signUp)
+router.get('/', util.isValidAdmin, userController.getAllUser)
+router.get('/:id', util.isValidUserOrAdmin, userController.getOneUser)
+router.post('/', util.isValidAdmin, userController.insertUser)
+router.put('/:id', util.isValidUserOrAdmin, userController.updateUser)
+router.delete('/:id', util.isValidAdmin, userController.deleteUser)
+router.post('/signup', userController.signUp)
 // router.post('/signin',userController.signIn)
 
-router.post('/signin',passport.authenticate('local',{
-  session:false
-}),(req,res)=>{
+router.post('/signin', passport.authenticate('local', {
+  session: false
+}), (req, res) => {
   let user = req.user;
   res.send(user)
 })
