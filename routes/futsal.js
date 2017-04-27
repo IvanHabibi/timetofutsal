@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 const util = require('../helpers/util');
-const mapController = require('../controllers/mapController');
+const futsalController = require('../controllers/futsalControllers');
 
-router.get('/futsal', util.isValidUserOrAdmin, userController.getAllUser);
+router.post('/', futsalController.place);
 
 module.exports = router;
