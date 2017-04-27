@@ -1,5 +1,5 @@
 var method = {}
-var User = require("../models/users");
+var User = require("../models/user");
 var passwordHash = require('password-hash');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();

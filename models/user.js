@@ -8,6 +8,6 @@ var userSchema = new Schema({
     role: String
 });
 
-var Users = mongoose.model('Users', userSchema);
+var User = mongoose.model('User', userSchema);
 
-module.exports = Users;
+module.exports = User;
