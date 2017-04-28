@@ -1,5 +1,6 @@
 var map = require('../models/map');
-var weather = require('../models/weather')
+var weather = require('../models/weather');
+var twett = require('../models/twitter');
 
 module.exports = {
   place: (req, res) => {
@@ -21,6 +22,8 @@ module.exports = {
           tmp.weather_name2 = result.hourly_forecast[1].condition;
           tmp.weather_hours3 = result.hourly_forecast[2].FCTTIME.pretty;
           tmp.weather_name3 = result.hourly_forecast[2].condition;
+          var str = `Saya akan bermain futsal di ${maps.name} dengan cuaca saat ini ${tmp.weather_name1}. Find Me!! ${maps.url}`
+          twett.posting(str);
           res.send(tmp)
         })
       } else {
